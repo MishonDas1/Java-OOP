@@ -1,0 +1,33 @@
+package com.mycompany.java_oop;
+
+public class Teacher {
+    String name, gender;
+    String phone;
+    int age;
+
+    // Method to display teacher details
+    void Display() {
+        System.out.println("Name : " + name);
+        System.out.println("Gender : " + gender);
+        System.out.println("Phone Number : " + phone);
+        System.out.println("Age : " + age);
+    }
+
+    public static void main(String[] args) {
+        // Creating the first teacher object
+        Teacher Teacher1 = new Teacher();
+        Teacher1.name = "Mishon Kumar";
+        Teacher1.gender = "Male";
+        Teacher1.phone = "013111349";
+        Teacher1.age = 20;
+        Teacher1.Display();
+
+        // Creating the second teacher object
+        Teacher Teacher2 = new Teacher();
+        Teacher2.name = "Arnab Kumar";
+        Teacher2.gender = "Male";
+        Teacher2.phone = "013111349";
+        Teacher2.age = 20;
+        Teacher2.Display();
+    }
+}
