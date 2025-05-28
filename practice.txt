@@ -1,0 +1,203 @@
+ques::Calculate total sales
+
+  public class SalesCalculation {
+    public static void main(String[] args) {
+        int[][][] sales = {
+            {{100, 200}, {150, 250}},
+            {{300, 400}, {350, 450}}
+        };
+
+        int totalSales = 0;
+
+        // Iterate through the 3D array and calculate the total sales
+        for (int[][] region : sales) {
+            for (int[] product : region) {
+                for (int sale : product) {
+                    totalSales += sale;
+                }
+            }
+        }
+
+        // Print the total sales
+        System.out.println("Total sales across all regions and products: " + totalSales);
+    }
+}
+
+
+question::Find the highest temperature and its location
+
+  public class TemperatureAnalysis {
+    public static void main(String[] args) {
+        int[][][] temperatures = {
+            {{30, 32, 31}, {28, 29, 30}},
+            {{25, 26, 27}, {24, 23, 22}}
+        };
+
+        int highestTemperature = Integer.MIN_VALUE;
+        int cityIndex = -1;
+        int dayIndex = -1;
+
+        // Iterate through the 3D array to find the highest temperature
+        for (int city = 0; city < temperatures.length; city++) {
+            for (int day = 0; day < temperatures[city].length; day++) {
+                for (int hour = 0; hour < temperatures[city][day].length; hour++) {
+                    if (temperatures[city][day][hour] > highestTemperature) {
+                        highestTemperature = temperatures[city][day][hour];
+                        cityIndex = city;
+                        dayIndex = day;
+                    }
+                }
+            }
+        }
+
+        // Print the results
+        System.out.println("Highest temperature recorded: " + highestTemperature);
+        System.out.println("Occurred in city " + (cityIndex + 1) + " on day " + (dayIndex + 1));
+    }
+}
+
+
+Question::
+  // Parent class
+class Bank {
+    float getRateOfInterest() {
+        return 0; // Default implementation
+    }
+}
+
+// Subclass SBI
+class SBI extends Bank {
+    float getRateOfInterest() {
+        return 8.4f; // Overriding the method
+    }
+}
+
+// Subclass ICICI
+class ICICI extends Bank {
+    float getRateOfInterest() {
+        return 7.3f; // Overriding the method
+    }
+}
+
+// Subclass AXIS
+class AXIS extends Bank {
+    float getRateOfInterest() {
+        return 9.7f; // Overriding the method
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        Bank sbi = new SBI();   // Create an object of SBI
+        Bank icici = new ICICI(); // Create an object of ICICI
+        Bank axis = new AXIS();  // Create an object of AXIS
+
+        // Displaying the rate of interest for each bank
+        System.out.println("SBI Rate of Interest: " + sbi.getRateOfInterest());
+        System.out.println("ICICI Rate of Interest: " + icici.getRateOfInterest());
+        System.out.println("AXIS Rate of Interest: " + axis.getRateOfInterest());
+    }
+}
+
+
+Question::Traverse the 3D array, find the highest temperature, and print details
+
+public class TemperatureAnalysis {
+    public static void main(String[] args) {
+        int[][][] temperatures = {
+            {{30, 32, 31}, {28, 29, 30}},
+            {{25, 26, 27}, {24, 23, 22}}
+        };
+
+        int highestTemperature = Integer.MIN_VALUE;
+        int cityIndex = -1, dayIndex = -1, timeIndex = -1;
+
+        // Traverse the 3D array
+        for (int city = 0; city < temperatures.length; city++) {
+            for (int day = 0; day < temperatures[city].length; day++) {
+                for (int time = 0; time < temperatures[city][day].length; time++) {
+                    if (temperatures[city][day][time] > highestTemperature) {
+                        highestTemperature = temperatures[city][day][time];
+                        cityIndex = city;
+                        dayIndex = day;
+                        timeIndex = time;
+                    }
+                }
+            }
+        }
+
+        // Print the results
+        System.out.println("Highest Temperature: " + highestTemperature);
+        System.out.println("City Index: " + cityIndex);
+        System.out.println("Day Index: " + dayIndex);
+        System.out.println("Time Slot Index: " + timeIndex);
+    }
+}
+
+
+Question::Create an abstract class hierarchy for Vehicle
+
+// Abstract class Vehicle
+abstract class Vehicle {
+    String vehicleNumber;
+    int daysRented;
+
+    // Constructor
+    Vehicle(String vehicleNumber, int daysRented) {
+        this.vehicleNumber = vehicleNumber;
+        this.daysRented = daysRented;
+    }
+
+    // Abstract method
+    abstract double calculateRentalCost();
+
+    // Method to display rental details
+    void displayRental() {
+        System.out.println("Vehicle Number: " + vehicleNumber);
+        System.out.println("Days Rented: " + daysRented);
+        System.out.println("Total Rental Cost: $" + calculateRentalCost());
+    }
+}
+
+// Subclass Car
+class Car extends Vehicle {
+    Car(String vehicleNumber, int daysRented) {
+        super(vehicleNumber, daysRented);
+    }
+
+    @Override
+    double calculateRentalCost() {
+        return daysRented * 40; // $40 per day
+    }
+}
+
+// Subclass Bike
+class Bike extends Vehicle {
+    Bike(String vehicleNumber, int daysRented) {
+        super(vehicleNumber, daysRented);
+    }
+
+    @Override
+    double calculateRentalCost() {
+        return daysRented * 15; // $15 per day
+    }
+}
+
+// Main class
+public class VehicleRental {
+    public static void main(String[] args) {
+        // Create objects for Car and Bike
+        Vehicle car = new Car("C123", 5);
+        Vehicle bike = new Bike("B456", 3);
+
+        // Display rental details using polymorphism
+        System.out.println("Car Rental Details:");
+        car.displayRental();
+
+        System.out.println("\nBike Rental Details:");
+        bike.displayRental();
+    }
+}
+
+  
